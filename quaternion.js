@@ -1,4 +1,6 @@
-class Quaternion {
+import Vector3 from './vector3.js';
+
+export default class Quaternion {
     constructor(re, i, j, k){
         this.re = re;
         this.i = i;
@@ -11,6 +13,9 @@ class Quaternion {
     }
     get conjugate(){
         return new Quaternion(this.re, -this.i, -this.j, -this.k);
+    }
+    get vector3(){
+        return new Vector3(this.i, this.j, this.k);
     }
     static multiply(q1, q2){
         const reNew = q1.re * q2.re - q1.i * q2.i - q1.j * q2.j - q1.k * q2.k;
