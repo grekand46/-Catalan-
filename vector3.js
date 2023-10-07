@@ -1,6 +1,6 @@
 import Quaternion from './quaternion.js';
 
-class Vector3 {
+export default class Vector3 {
     constructor(x, y, z){
         this.x = x;
         this.y = y;
@@ -14,7 +14,9 @@ class Vector3 {
         return new Quaternion(0, this.x, this.y, this.z);
     }
     sandwich(quaternion){
-        const vq = new Quaternion(0, this.x, this.y, this.z);
-        return vq.leftMult(quaternion).rightMult(quaternion.conjugate);
+        return this.quaternion.multLeft(quaternion).multRight(quaternion.conjugate).vector3;
+    }
+    toString(){
+        return `(${this.x}, ${this.y}, ${this.z})`;
     }
 }

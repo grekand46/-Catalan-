@@ -30,4 +30,7 @@ export default class Quaternion {
     multRight(q){
         return Quaternion.multiply(this, q);
     }
+    toString(){
+        return `${this.re} + ${this.i}i + ${this.j}j + ${this.k}k`;
+    }
 }
